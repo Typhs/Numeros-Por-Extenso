@@ -6,9 +6,9 @@ int x = 0;
 void unidade(FILE *w){
 
     if ((x>9) && ((x%10)>0)){
-        fprintf(w," e "); //checa se a casa da dezena de x n„o È zero e se h· outro dÌgito alÈm da dezena para adicionar o "e"
+        fprintf(w," e "); //checa se a casa da dezena de x n√£o √© zero e se h√° outro d√≠gito al√©m da dezena para adicionar o "e"
     }
-    x = x%10;//transforma n˙meros de 2 dÌgitos em de 1
+    x = x%10;//transforma n√∫meros de 2 d√≠gitos em de 1
     //printf("agora em Uidade, o x eh: %i",x);
     switch(x){
         case 1:
@@ -45,18 +45,18 @@ void unidade(FILE *w){
 
 void dezena(FILE *w){
     if ((x>99) && ((x%100)>0)){
-        fprintf(w," e "); //checa se a casa da centena de x n„o È zero e se h· outro dÌgito alÈm da centena para adicionar o "e"
+        fprintf(w," e "); //checa se a casa da centena de x n√£o √© zero e se h√° outro d√≠gito al√©m da centena para adicionar o "e"
     }
-    x = x%100;//transforma n˙mero de 3 digitos em de 2
+    x = x%100;//transforma n√∫mero de 3 digitos em de 2
     //printf("agora em Dezena, x eh: %i\n",x);
     switch(x){
-        case 10: //aqui ocorre uma peculiaridade, do 11 atÈ o 19 na pronuncia n„o h· regra constante de nomenclatura, cada numero È pronunciado de um jeito especÌfico
+        case 10: //aqui ocorre uma peculiaridade, do 11 at√© o 19 na pronuncia n√£o h√° regra constante de nomenclatura, cada numero √© pronunciado de um jeito espec√≠fico
             fprintf(w,"dez");
             break;
-            //inÌcio da peculiaridade de 10 -----------
+            //in√≠cio da peculiaridade de 10 -----------
         case 11:
             fprintf(w,"onze");
-            x = 0; // x È setado a dez em cada uma dessas exceÁıes para evitar que a funÁ„o da unidade seja ativada, j· que nesses casos a unidade ja foi expressa
+            x = 0; // x √© setado a dez em cada uma dessas exce√ß√µes para evitar que a fun√ß√£o da unidade seja ativada, j√° que nesses casos a unidade ja foi expressa
             break;
         case 12:
             fprintf(w,"doze");
@@ -122,13 +122,13 @@ void dezena(FILE *w){
 
 void centena(FILE *w){
     if ((x>999) && ((x%1000)>0)){
-        fprintf(w," e "); //checa se a casa da centena de x n„o È zero e se h· outro dÌgito alÈm da centena para adicionar o "e"
+        fprintf(w," e "); //checa se a casa da centena de x n√£o √© zero e se h√° outro d√≠gito al√©m da centena para adicionar o "e"
     }
-    x = x%1000;//transforma n˙mero de 4 digitos em de 3
+    x = x%1000;//transforma n√∫mero de 4 digitos em de 3
     //printf("agora em Centena, x eh: %i\n",x);
     switch(x){
         case 100 ... 199:
-            if (x == 100){//nota-se uma peculiaridade dos numeros com uma centena,100 È "cem", entre 101 e 199 È "cento"
+            if (x == 100){//nota-se uma peculiaridade dos numeros com uma centena,100 √© "cem", entre 101 e 199 √© "cento"
                 fprintf(w,"cem");
             } else {
                 fprintf(w,"cento");
@@ -167,7 +167,7 @@ void milhar(FILE *w){
     //printf("agora em Milhar, x eh: %i\n",x);
     switch(x){
         case 0:
-            fprintf(w,"zero");//caso o n˙mero seja zero ele escreve isso aqui, uma vez que as outras funÁ„o n„o seriam ativadas por zero
+            fprintf(w,"zero");//caso o n√∫mero seja zero ele escreve isso aqui, uma vez que as outras fun√ß√£o n√£o seriam ativadas por zero
             break;
         case 1000 ... 1999:
             fprintf(w,"mil");
@@ -203,7 +203,7 @@ void milhar(FILE *w){
 
 
 int main(){
-//iniciaÁ„o----------------------------------------------------------------
+//inicia√ß√£o----------------------------------------------------------------
     int decimal = 0,menu = 0;
     double numero = 0;
     char palavra[100];
@@ -213,7 +213,7 @@ int main(){
 
 //Corpo Principal----------------------------------------------------------
     menu = 1;
-    //conjuncaoE(arquivo_w, 10); //isso testa a conjunÁ„oE
+    //conjuncaoE(arquivo_w, 10); //isso testa a conjun√ß√£oE
 
     printf("Digite 1 para adicionar ao documento ou 2 para ler\n");
     scanf("%i",&menu);
@@ -232,7 +232,7 @@ int main(){
 
         fprintf(arquivo_w,"%d.%d: ",x,decimal);
 
-        milhar(arquivo_w);//esse trecho ativa as funÁıes que escrevem a parte inteira do numero por extenso no arquivo
+        milhar(arquivo_w);//esse trecho ativa as fun√ß√µes que escrevem a parte inteira do numero por extenso no arquivo
         centena(arquivo_w);
         dezena(arquivo_w);
         unidade(arquivo_w);
@@ -252,7 +252,7 @@ int main(){
     }
     if (menu == 2){//segue o processo de ler o txt
         printf("Cheque: \n\n");
-        while(fgets(palavra, 100, arquivo_r) != NULL){//essa estrutura escreve o que h· no arquivo numeros.txt na tela
+        while(fgets(palavra, 100, arquivo_r) != NULL){//essa estrutura escreve o que h√° no arquivo numeros.txt na tela
             printf("%s",palavra);
         }
     }
@@ -260,7 +260,7 @@ int main(){
         printf("Valor invalido\n");
     }
 
-//finalizaÁ„o--------------------------------------------------------------
+//finaliza√ß√£o--------------------------------------------------------------
     printf("\n");
     fclose(arquivo_r);
     fclose(arquivo_w);
